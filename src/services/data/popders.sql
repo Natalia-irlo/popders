@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 02, 2023 at 02:29 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 02-02-2023 a las 15:21:30
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,78 +18,79 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `popders`
+-- Base de datos: `popders`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `coders`
+-- Estructura de tabla para la tabla `coder`
 --
 
-CREATE TABLE `coders` (
-  `Id_` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+CREATE TABLE `coder` (
+  `id_coder` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `song`
+-- Estructura de tabla para la tabla `song`
 --
 
 CREATE TABLE `song` (
-  `Id_` int(11) NOT NULL,
-  `Title` varchar(100) NOT NULL,
-  `Artist` varchar(100) NOT NULL,
-  `Genre` varchar(100) NOT NULL,
-  `URL` varchar(200) NOT NULL,
-  `Date` date NOT NULL,
-  `Status` tinyint(1) NOT NULL,
-  `Img` longblob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  `id_song` int(11) NOT NULL,
+  `id_coder` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `artist` varchar(100) NOT NULL,
+  `genre` varchar(100) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `date` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `img` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `coders`
+-- Indices de la tabla `coder`
 --
-ALTER TABLE `coders`
-  ADD PRIMARY KEY (`Id_`);
+ALTER TABLE `coder`
+  ADD PRIMARY KEY (`id_coder`);
 
 --
--- Indexes for table `song`
+-- Indices de la tabla `song`
 --
 ALTER TABLE `song`
-  ADD PRIMARY KEY (`Id_`);
+  ADD PRIMARY KEY (`id_song`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `coders`
+-- AUTO_INCREMENT de la tabla `coder`
 --
-ALTER TABLE `coders`
-  MODIFY `Id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `coder`
+  MODIFY `id_coder` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `song`
+-- AUTO_INCREMENT de la tabla `song`
 --
 ALTER TABLE `song`
-  MODIFY `Id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_song` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `song`
+-- Filtros para la tabla `coder`
 --
-ALTER TABLE `song`
-  ADD CONSTRAINT `selectsong_fk` FOREIGN KEY (`Id_`) REFERENCES `coders` (`Id_`);
+ALTER TABLE `coder`
+  ADD CONSTRAINT `selec_fk` FOREIGN KEY (`id_coder`) REFERENCES `song` (`id_song`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
