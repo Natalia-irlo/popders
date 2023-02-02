@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 01-02-2023 a las 15:24:40
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.0.25
+-- Host: 127.0.0.1
+-- Generation Time: Feb 02, 2023 at 02:29 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `popders`
+-- Database: `popders`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `coders`
+-- Table structure for table `coders`
 --
 
 CREATE TABLE `coders` (
@@ -35,7 +35,7 @@ CREATE TABLE `coders` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `song`
+-- Table structure for table `song`
 --
 
 CREATE TABLE `song` (
@@ -50,49 +50,43 @@ CREATE TABLE `song` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `coders`
+-- Indexes for table `coders`
 --
 ALTER TABLE `coders`
   ADD PRIMARY KEY (`Id_`);
 
 --
--- Indices de la tabla `song`
+-- Indexes for table `song`
 --
 ALTER TABLE `song`
   ADD PRIMARY KEY (`Id_`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `coders`
+-- AUTO_INCREMENT for table `coders`
 --
 ALTER TABLE `coders`
-  MODIFY `Id_` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `song`
+-- AUTO_INCREMENT for table `song`
 --
 ALTER TABLE `song`
-  MODIFY `Id_` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `coders`
---
-ALTER TABLE `coders`
-  ADD CONSTRAINT `selectcoder_fk` FOREIGN KEY (`Id_`) REFERENCES `song` (`Id_`);
-
---
--- Filtros para la tabla `song`
+-- Constraints for table `song`
 --
 ALTER TABLE `song`
   ADD CONSTRAINT `selectsong_fk` FOREIGN KEY (`Id_`) REFERENCES `coders` (`Id_`);
