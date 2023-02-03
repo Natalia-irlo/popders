@@ -22,4 +22,4 @@ class Query extends Connection
 }
 
 $song_data = new Query;
-$song_data->addContent();
+//$song_data->addContent();
