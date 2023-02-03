@@ -3,8 +3,12 @@ include 'connection.php';
 
 function showContent($connection)
 {
-    $seeAllQuery = 'SELECT nombre FROM animales ORDER BY nombre';
+    $seeAllQuery = 'SELECT title, artist FROM song';
     foreach ($connection->query($seeAllQuery) as $row) {
-        echo $row['nombre'] . "\t";
+        echo "\n";
+        echo $row['title'] . "\n";
+        echo $row['artist'] . "\n";
     }
 }
+
+showContent($conn);
