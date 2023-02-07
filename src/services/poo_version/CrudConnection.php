@@ -1,8 +1,6 @@
 <?php
 
-// Esta sería como una interfaz
-
-abstract class CrudConnection
+class CrudConnection
 {
     private $connection;
 
@@ -23,9 +21,4 @@ abstract class CrudConnection
             echo "Connection failed: " . $e->getMessage();
         }
     }
-
-    abstract function getRows();
-    // abstract function addRow();
-    // abstract function updateRow();
-    // abstract function deleteRow();
 }

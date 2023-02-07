@@ -43,5 +43,5 @@ class Songs extends CrudConnection
 }
 
 $movement = new Songs;
-$movement->addRow(12, "Heaven is a Place on Earth", "Belinda Carlisle", "pop", "https://www.youtube.com/watch?v=j2F4INQFjEI", "2023-01-13", false);
+$movement->deleteRow(12);
 var_dump($movement);
