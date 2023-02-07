@@ -10,19 +10,6 @@ class Songs extends CrudConnection
         $this->connection = $this->connectDatabase();
     }
 
-    private function connectDatabase()
-    {
-        try {
-            $conn = new PDO("mysql:host=localhost;dbname=popders", "root", "");
-
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
-            return $conn;
-        } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-        }
-    }
-
     public function getRows()
     {
         $seeAllQuery = 'SELECT title, artist FROM song';
@@ -56,5 +43,5 @@ class Songs extends CrudConnection
 }
 
 $movement = new Songs;
-$movement->deleteRow(11);
+$movement->addRow(12, "Heaven is a Place on Earth", "Belinda Carlisle", "pop", "https://www.youtube.com/watch?v=j2F4INQFjEI", "2023-01-13", false);
 var_dump($movement);

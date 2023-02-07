@@ -11,7 +11,7 @@ abstract class CrudConnection
         $this->connection = $this->connectDatabase();
     }
 
-    private function connectDatabase()
+    public function connectDatabase()
     {
         try {
             $conn = new PDO("mysql:host=localhost;dbname=popders", "root", "");
